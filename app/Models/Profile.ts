@@ -3,20 +3,22 @@ import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 
 export default class Profile extends BaseModel {
+  @column()
+  public user_id: number
   @column({ isPrimary: true })
   public id: number
 
   @column({ notNullable: true })
   public name: string
 
-  @column({ notNullable: true })
-  public emailAddress: string
+  @column({ columnName: 'mobile_number' })
+  public mobileNumber: string
 
   @column()
   public gender: string
 
-  @column()
-  public dateOfBirth: Date
+  @column({ columnName: 'date_of_birth' })
+  public dateOfBirth: DateTime
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

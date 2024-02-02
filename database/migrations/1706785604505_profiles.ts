@@ -7,9 +7,9 @@ export default class Profiles extends BaseSchema {
       table.increments('id').primary()
       table.integer('user_id').references('users.id')
       table.string('name').notNullable()
-      table.string('email address').notNullable()
+      table.string('mobile_number').notNullable().unique()
       table.string('gender')
-      table.date('date of Birth')
+      table.date('date_of_birth')
       table.timestamps(true)
     })
   }
