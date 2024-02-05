@@ -19,7 +19,15 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import RegistersController from 'App/Controllers/Http/RegistersController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+Route.get('/user/profile', 'ProfilesController.getprofile').middleware('auth')
+Route.post('/user/profile', 'ProfilesController.createprofile').middleware('auth')
+Route.put('/user/profile', 'ProfilesController.updateProfile').middleware('auth')
+Route.delete('/user/profile', 'ProfilesController.deleteProfile').middleware('auth')
+Route.post('/logout', 'RegistersController.logout').middleware('auth')
+Route.post('/signup', 'RegistersController.index')
+Route.post('/login', 'RegistersController.login')
